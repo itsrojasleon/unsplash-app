@@ -2,8 +2,14 @@ import { unsplash } from '../api/unsplash';
 import { Dispatch } from 'redux';
 import { ActionTypes } from './types';
 
+export interface Image {
+  id: string;
+  urls: { thumb: string };
+  description: string;
+}
+
 export interface ServerResponse {
-  results: [];
+  results: Image[];
   total: number;
   total_pages: number;
 }

@@ -9,15 +9,15 @@ export const App = (): JSX.Element => {
   const { results } = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
 
-  const onSubmit = async (term: string) => {
+  const onSubmit = (term: string): void => {
     dispatch(fetchImages(term));
   };
 
   return (
     <div>
       <SearchBar onSubmit={onSubmit} />
-      <div>{results && results.length}</div>
-      {results && <ImageList images={results} />}
+      <div>{results.length} results</div>
+      <ImageList images={results} />
     </div>
   );
 };
