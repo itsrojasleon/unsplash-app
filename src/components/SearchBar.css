@@ -1,9 +1,11 @@
 .search-bar.form {
   text-align: center;
-  padding: 10px;
+  position: relative;
+  width: 50%;
+  margin: auto;
 }
 .search-bar.input {
-  width: 50vw;
+  width: 100%;
   font-size: 17px;
   border-radius: 50px;
   border: none;
@@ -11,6 +13,7 @@
   background-color: rgb(235, 237, 237);
   border: 1px solid rgb(242, 242, 242);
   transition: 0.3s;
+  text-indent: 30px;
 }
 .search-bar.input:focus {
   outline: 0;
@@ -20,4 +23,10 @@
 }
 .search-bar.input::placeholder {
   color: rgb(140, 140, 140);
+}
+.search-bar.icon {
+  position: absolute;
+  top: 14px;
+  left: 20px;
+  font-size: 21px;
 }

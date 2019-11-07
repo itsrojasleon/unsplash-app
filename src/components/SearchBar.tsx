@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MdSearch } from 'react-icons/md';
 import './SearchBar.css';
 
 export const SearchBar = ({ onSubmit }: any): JSX.Element => {
@@ -15,6 +16,7 @@ export const SearchBar = ({ onSubmit }: any): JSX.Element => {
 
   return (
     <form className="search-bar form" onSubmit={onFormSubmit}>
+      <MdSearch className="search-bar icon" />
       <input
         className="search-bar input"
         type="text"
