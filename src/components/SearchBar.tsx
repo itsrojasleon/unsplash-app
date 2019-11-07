@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchBar.css';
 
 export const SearchBar = ({ onSubmit }: any): JSX.Element => {
   const [term, setTerm] = useState('');
@@ -13,8 +14,13 @@ export const SearchBar = ({ onSubmit }: any): JSX.Element => {
   };
 
   return (
-    <form onSubmit={onFormSubmit}>
-      <input type="text" placeholder="Search" onChange={onInutChange} />
+    <form className="search-bar form" onSubmit={onFormSubmit}>
+      <input
+        className="search-bar input"
+        type="text"
+        placeholder="Search Unsplash"
+        onChange={onInutChange}
+      />
     </form>
   );
 };
