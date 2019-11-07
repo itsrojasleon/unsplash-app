@@ -1,5 +1,7 @@
 import React from 'react';
 import { Image } from '../actions';
+import { ImageCard } from './ImageCard';
+import './ImageList.css';
 
 interface Props {
   images: Image[];
@@ -7,9 +9,9 @@ interface Props {
 
 export const ImageList = ({ images }: Props): JSX.Element => {
   return (
-    <div>
+    <div className="image-list">
       {images.map(image => (
-        <img key={image.id} src={image.urls.thumb} alt={image.description} />
+        <ImageCard key={image.id} {...image} />
       ))}
     </div>
   );
