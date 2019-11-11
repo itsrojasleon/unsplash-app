@@ -20,7 +20,7 @@ export const SearchBar = ({ onSubmit }: any): JSX.Element => {
       <input
         className="search-bar input"
         type="text"
-        placeholder="Search"
+        placeholder="Search free high-resolution photos"
         onChange={onInutChange}
       />
     </form>

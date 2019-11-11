@@ -2,7 +2,7 @@
   text-align: center;
   position: relative;
   width: 50%;
-  margin: auto;
+  margin: 0 auto 20px auto;
 }
 .search-bar.input {
   width: 100%;

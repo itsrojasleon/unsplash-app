@@ -15,7 +15,6 @@ export default () => {
   return (
     <div>
       <SearchBar onSubmit={onSubmit} />
-      <div>{results.length} results</div>
       <ImageList images={results} />
     </div>
   );
