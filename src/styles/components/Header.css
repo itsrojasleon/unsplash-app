@@ -1,11 +1,15 @@
 .header-container {
   width: 100%;
   border-bottom: 1px solid rgb(240, 240, 240);
+  margin-bottom: 20px;
 }
 .header-container header {
   width: 85%;
   margin: auto;
+  padding: 10px;
 }
 .header-container nav {
-  background: red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

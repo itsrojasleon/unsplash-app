@@ -1,5 +1,5 @@
 import React from 'react';
-import './Header.css';
+import '../styles/components/Header.css';
 
 export const Header = () => {
   return (
@@ -7,6 +7,11 @@ export const Header = () => {
       <header>
         <nav>
           <span>Logo</span>
+          <div>
+            <a href="#" target="_blank">
+              Hello
+            </a>
+          </div>
         </nav>
       </header>
     </div>

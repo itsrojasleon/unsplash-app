@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MdSearch } from 'react-icons/md';
-import './SearchBar.css';
+import '../styles/components/SearchBar.css';
 
 export const SearchBar = ({ onSubmit }: any): JSX.Element => {
   const [term, setTerm] = useState('');
@@ -20,7 +20,7 @@ export const SearchBar = ({ onSubmit }: any): JSX.Element => {
       <input
         className="search-bar input"
         type="text"
-        placeholder="Search Unsplash"
+        placeholder="Search"
         onChange={onInutChange}
       />
     </form>

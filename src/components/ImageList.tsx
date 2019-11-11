@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from '../actions';
 import { ImageCard } from './ImageCard';
-import './ImageList.css';
+import '../styles/components/ImageList.css';
 
 interface Props {
   images: Image[];

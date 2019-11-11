@@ -5,7 +5,7 @@ import { StoreState } from '../reducers/index';
 import { SearchBar } from '../components/SearchBar';
 import { ImageList } from '../components/ImageList';
 
-export const Home = () => {
+export default () => {
   const { results } = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
 
