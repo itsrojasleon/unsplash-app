@@ -1,6 +1,15 @@
-import { FetchImagesAction } from './images';
+import {
+  FetchImagesBeginAction,
+  FetchImagesSuccessAction,
+  FetchImagesFailureAction,
+} from './images';
 
 export enum ActionTypes {
-  fetchImages
+  fetchImagesBegin,
+  fetchImagesSuccess,
+  fetchImagesFailure,
 }
-export type Action = FetchImagesAction;
+export type Action =
+  | FetchImagesBeginAction
+  | FetchImagesSuccessAction
+  | FetchImagesFailureAction;

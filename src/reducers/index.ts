@@ -7,5 +7,5 @@ export interface StoreState {
 }
 
 export const reducers = combineReducers<StoreState>({
-  images: imagesReducer
+  images: imagesReducer,
 });

@@ -6,8 +6,11 @@ import { SearchBar } from '../components/SearchBar';
 import { ImageList } from '../components/ImageList';
 
 export default () => {
-  const { results } = useSelector((state: StoreState) => state.images);
+  // { results, isFetching, error }
+  const state = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
+
+  console.log('State:', state);
 
   const onSubmit = (term: string): void => {
     dispatch(fetchImages(term));
@@ -15,7 +18,7 @@ export default () => {
   return (
     <div>
       <SearchBar onSubmit={onSubmit} />
-      <ImageList images={results} />
+      <ImageList images={state.response.results} />
     </div>
   );
 };

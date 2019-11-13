@@ -1,7 +1,7 @@
 .search-bar.form {
   text-align: center;
   position: relative;
-  width: 50%;
+  width: 60%;
   margin: 0 auto 20px auto;
 }
 .search-bar.input {
@@ -30,4 +30,10 @@
   left: 20px;
   font-size: 21px;
   color: rgb(110, 110, 110);
+}
+
+@media (max-width: 769px) {
+  .search-bar.form {
+    width: 90%;
+  }
 }

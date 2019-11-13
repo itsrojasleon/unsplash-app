@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { MdSearch } from 'react-icons/md';
 import '../styles/components/SearchBar.css';
 
-export const SearchBar = ({ onSubmit }: any): JSX.Element => {
+interface Props {
+  onSubmit: Function;
+}
+
+export const SearchBar = ({ onSubmit }: Props): JSX.Element => {
   const [term, setTerm] = useState('');
 
   const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
