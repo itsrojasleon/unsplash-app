@@ -27,7 +27,6 @@ export interface FetchImagesSuccessAction {
 }
 export interface FetchImagesFailureAction {
   type: ActionTypes.fetchImagesFailure;
-  payload: ServerResponse;
 }
 
 export const fetchImages = (term: string) => {
@@ -35,22 +34,23 @@ export const fetchImages = (term: string) => {
     dispatch<FetchImagesBeginAction>({
       type: ActionTypes.fetchImagesBegin,
     });
+    console.log('Start.......');
 
-    const response = await unsplash.get<Response>('/search/photos', {
-      params: { query: term },
-    });
-    // console.log(response);
+    try {
+      const response = await unsplash.get<Response>('/search/photos', {
+        params: { query: term },
+      });
 
-    // if (response.status !== 200) {
-    //   dispatch<ErrorImagesAction>({
-    //     type: ActionTypes.errorImages,
-    //     payload: {}
-    //   });
-    // }
-
-    dispatch<FetchImagesSuccessAction>({
-      type: ActionTypes.fetchImagesSuccess,
-      payload: response.data,
-    });
+      dispatch<FetchImagesSuccessAction>({
+        type: ActionTypes.fetchImagesSuccess,
+        payload: response.data,
+      });
+      console.log('Fetched.........');
+    } catch (e) {
+      dispatch<FetchImagesFailureAction>({
+        type: ActionTypes.fetchImagesFailure,
+      });
+      console.log('Fuck mate.......');
+    }
   };
 };

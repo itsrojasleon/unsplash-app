@@ -19,7 +19,14 @@ export const imagesReducer = (
     case ActionTypes.fetchImagesSuccess:
       return {
         ...state,
+        isFetching: false,
         response: action.payload,
+      };
+    case ActionTypes.fetchImagesFailure:
+      return {
+        ...state,
+        isFetching: false,
+        error: 'Something went wrong',
       };
     default:
       return state;

@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/Spinner.css';
 
 interface Props {
-  isBig: boolean;
+  isBig?: boolean;
 }
 
 export const Spinner = ({ isBig }: Props): JSX.Element => {

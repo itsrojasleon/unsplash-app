@@ -4,21 +4,25 @@ import { fetchImages } from '../actions';
 import { StoreState } from '../reducers/index';
 import { SearchBar } from '../components/SearchBar';
 import { ImageList } from '../components/ImageList';
+import { Spinner } from '../components/Spinner';
 
 export default () => {
-  // { results, isFetching, error }
-  const state = useSelector((state: StoreState) => state.images);
+  const { response, isFetching, error } = useSelector(
+    (state: StoreState) => state.images
+  );
   const dispatch = useDispatch();
-
-  console.log('State:', state);
 
   const onSubmit = (term: string): void => {
     dispatch(fetchImages(term));
   };
+
   return (
     <div>
       <SearchBar onSubmit={onSubmit} />
-      <ImageList images={state.response.results} />
+      {/* Probably I'll dont need it */}
+      {/* {isFetching && <Spinner isBig />} */}
+      {error && <div>{error}</div>}
+      <ImageList images={response.results} />
     </div>
   );
 };
