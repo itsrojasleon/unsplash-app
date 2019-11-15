@@ -1,4 +1,4 @@
-import { ServerResponse, ImageAction, ImageActionTypes } from '../actions';
+import { ImageServerResponse, ImageAction, ImageActionTypes } from '../actions';
 
 const initialState = {
   response: { results: [], total: 0, total_pages: 0 },
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export const imagesReducer = (
-  state: ServerResponse = initialState,
+  state: ImageServerResponse = initialState,
   action: ImageAction
 ) => {
   switch (action.type) {

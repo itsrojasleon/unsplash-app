@@ -1,12 +1,13 @@
 import { combineReducers } from 'redux';
-import { ServerResponse } from '../actions';
+import { ImageServerResponse } from '../actions/images';
+import { UserServerResponse } from '../actions/users';
 
 import { imagesReducer } from './images';
 import { usersReducer } from './users';
 
 export interface StoreState {
-  images: ServerResponse;
-  users: any;
+  images: ImageServerResponse;
+  users: UserServerResponse;
 }
 
 export const reducers = combineReducers<StoreState>({

@@ -7,13 +7,13 @@ export interface Image {
   urls?: { thumb: string };
   description?: string;
 }
-export interface Response {
+export interface ImageResponse {
   results: Image[];
   total: number;
   total_pages: number;
 }
-export interface ServerResponse {
-  response: Response;
+export interface ImageServerResponse {
+  response: ImageResponse;
   isFetching: boolean;
   error: string;
 }
@@ -23,7 +23,7 @@ export interface FetchImagesBeginAction {
 }
 export interface FetchImagesSuccessAction {
   type: ImageActionTypes.fetchImagesSuccess;
-  payload: Response;
+  payload: ImageResponse;
 }
 export interface FetchImagesFailureAction {
   type: ImageActionTypes.fetchImagesFailure;
@@ -36,7 +36,7 @@ export const fetchImages = (query: string) => {
     });
 
     try {
-      const response = await unsplash.get<Response>('/search/photos', {
+      const response = await unsplash.get<ImageResponse>('/search/photos', {
         params: { query },
       });
 

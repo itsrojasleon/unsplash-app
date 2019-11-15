@@ -2,18 +2,26 @@ import { unsplash } from '../api/unsplash';
 import { Dispatch } from 'redux';
 import { UserActionTypes } from './types';
 
-export interface ServerResponse {
-  response: Response;
+export interface User {
+  id?: number;
+  first_name?: string;
+}
+export interface UserResponse {
+  results: User[];
+  total: number;
+  total_pages: number;
+}
+export interface UserServerResponse {
+  response: UserResponse;
   isFetching: boolean;
   error: string;
 }
-
 export interface FetchUsersBeginAction {
   type: UserActionTypes.fetchUsersBegin;
 }
 export interface FetchUsersSuccessAction {
   type: UserActionTypes.fetchUsersSuccess;
-  payload: any;
+  payload: UserResponse;
 }
 export interface FetchUsersFailureAction {
   type: UserActionTypes.fetchUsersFailure;
@@ -22,11 +30,9 @@ export interface FetchUsersFailureAction {
 export const fetchUsers = (query: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await unsplash.get<ServerResponse>('/search/users', {
+      const response = await unsplash.get<UserResponse>('/search/users', {
         params: { query },
       });
-
-      console.log(response);
 
       dispatch<FetchUsersSuccessAction>({
         type: UserActionTypes.fetchUsersSuccess,
