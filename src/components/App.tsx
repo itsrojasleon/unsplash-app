@@ -4,6 +4,7 @@ import { Header } from './Header';
 import { Spinner } from './Spinner';
 
 const Home = lazy(() => import('../screens/Home'));
+const User = lazy(() => import('../screens/User'));
 
 export const App = (): JSX.Element => {
   return (
@@ -12,6 +13,7 @@ export const App = (): JSX.Element => {
       <Suspense fallback={<Spinner isBig={true} />}>
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/users" component={User} />
         </Switch>
       </Suspense>
     </BrowserRouter>

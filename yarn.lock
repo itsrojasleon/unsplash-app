@@ -8712,6 +8712,11 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
+rojasleon-react-spinner@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/rojasleon-react-spinner/-/rojasleon-react-spinner-1.0.1.tgz#3f3ea6b80269a448d300856df9cb46b3bff693d0"
+  integrity sha512-tawW1hanm0oxqla3LYKLnCD4L7jCg249cS2z+m/W7T33af5fxpml0Ievq1fuZyV2SaHas4n69vDz3pJV3kg8VQ==
+
 rsvp@^4.8.4:
   version "4.8.5"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.5.tgz#c8f155311d167f68f21e168df71ec5b083113734"

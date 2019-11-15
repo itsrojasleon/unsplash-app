@@ -4,6 +4,7 @@ import '../styles/components/SearchBar.css';
 
 interface Props {
   onSubmit: Function;
+  isLoading: boolean;
 }
 
 export const SearchBar = ({ onSubmit }: Props): JSX.Element => {

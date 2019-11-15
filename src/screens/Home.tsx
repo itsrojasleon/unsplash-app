@@ -4,7 +4,8 @@ import { fetchImages } from '../actions';
 import { StoreState } from '../reducers/index';
 import { SearchBar } from '../components/SearchBar';
 import { ImageList } from '../components/ImageList';
-import { Spinner } from '../components/Spinner';
+// import {Spinner} from 'rojasleon-react-spinner';
+// import { Spinner } from '../components/Spinner';
 
 export default () => {
   const { response, isFetching, error } = useSelector(
@@ -18,10 +19,11 @@ export default () => {
 
   return (
     <div>
-      <SearchBar onSubmit={onSubmit} />
+      <SearchBar onSubmit={onSubmit} isLoading={isFetching} />
       {/* Probably I'll dont need it */}
       {/* {isFetching && <Spinner isBig />} */}
       {error && <div>{error}</div>}
+      {/* <Spinner /> */}
       <ImageList images={response.results} />
     </div>
   );

@@ -1,6 +1,6 @@
 import { unsplash } from '../api/unsplash';
 import { Dispatch } from 'redux';
-import { ActionTypes } from './types';
+import { ImageActionTypes } from './types';
 
 export interface Image {
   id?: number;
@@ -19,38 +19,35 @@ export interface ServerResponse {
 }
 
 export interface FetchImagesBeginAction {
-  type: ActionTypes.fetchImagesBegin;
+  type: ImageActionTypes.fetchImagesBegin;
 }
 export interface FetchImagesSuccessAction {
-  type: ActionTypes.fetchImagesSuccess;
+  type: ImageActionTypes.fetchImagesSuccess;
   payload: Response;
 }
 export interface FetchImagesFailureAction {
-  type: ActionTypes.fetchImagesFailure;
+  type: ImageActionTypes.fetchImagesFailure;
 }
 
-export const fetchImages = (term: string) => {
+export const fetchImages = (query: string) => {
   return async (dispatch: Dispatch) => {
     dispatch<FetchImagesBeginAction>({
-      type: ActionTypes.fetchImagesBegin,
+      type: ImageActionTypes.fetchImagesBegin,
     });
-    console.log('Start.......');
 
     try {
       const response = await unsplash.get<Response>('/search/photos', {
-        params: { query: term },
+        params: { query },
       });
 
       dispatch<FetchImagesSuccessAction>({
-        type: ActionTypes.fetchImagesSuccess,
+        type: ImageActionTypes.fetchImagesSuccess,
         payload: response.data,
       });
-      console.log('Fetched.........');
     } catch (e) {
       dispatch<FetchImagesFailureAction>({
-        type: ActionTypes.fetchImagesFailure,
+        type: ImageActionTypes.fetchImagesFailure,
       });
-      console.log('Fuck mate.......');
     }
   };
 };

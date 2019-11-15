@@ -11,7 +11,7 @@ export const Header: React.FC = (): JSX.Element => {
           <div>
             <Link to="/">Photos</Link>
             <Link to="/">Collections</Link>
-            <Link to="/">Users</Link>
+            <Link to="/users">Users</Link>
           </div>
         </nav>
       </header>

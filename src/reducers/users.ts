@@ -1,4 +1,4 @@
-import { ServerResponse, ImageAction, ImageActionTypes } from '../actions';
+import { ServerResponse, UserAction, UserActionTypes } from '../actions';
 
 const initialState = {
   response: { results: [], total: 0, total_pages: 0 },
@@ -6,26 +6,26 @@ const initialState = {
   error: '',
 };
 
-export const imagesReducer = (
+export const usersReducer = (
   state: ServerResponse = initialState,
-  action: ImageAction
+  action: UserAction
 ) => {
   switch (action.type) {
-    case ImageActionTypes.fetchImagesBegin:
+    case UserActionTypes.fetchUsersBegin:
       return {
         ...state,
-        isFetching: true,
+        loading: true,
       };
-    case ImageActionTypes.fetchImagesSuccess:
+    case UserActionTypes.fetchUsersSuccess:
       return {
         ...state,
-        isFetching: false,
-        response: action.payload,
+        laoding: false,
+        results: action.payload,
       };
-    case ImageActionTypes.fetchImagesFailure:
+    case UserActionTypes.fetchUsersFailure:
       return {
         ...state,
-        isFetching: false,
+        loading: false,
         error: 'Something went wrong',
       };
     default:
