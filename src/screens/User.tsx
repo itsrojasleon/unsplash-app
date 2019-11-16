@@ -21,7 +21,10 @@ export default () => {
       <SearchBar onSubmit={onSubmit} isLoading={false} />
       <div>
         {response.results.map(user => (
-          <div key={user.id}>{user.first_name}</div>
+          <div key={user.id}>
+            <div>{user.first_name}</div>
+            <img src={user.profile_image && user.profile_image.large} />
+          </div>
         ))}
       </div>
     </div>

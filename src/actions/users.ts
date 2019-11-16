@@ -5,6 +5,7 @@ import { UserActionTypes } from './types';
 export interface User {
   id?: number;
   first_name?: string;
+  profile_image?: { [key: string]: string };
 }
 export interface UserResponse {
   results: User[];
