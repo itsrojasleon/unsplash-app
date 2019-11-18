@@ -2,34 +2,40 @@
   text-align: center;
   position: relative;
   width: 60%;
-  margin: 0 auto 20px auto;
 }
-.search-bar.input {
+.search-bar input {
   width: 100%;
   font-size: 17px;
   border-radius: 50px;
   border: none;
-  padding: 12px 25px;
+  padding: 10px 25px;
   background-color: rgb(235, 237, 237);
   border: 1px solid rgb(242, 242, 242);
   transition: 0.3s;
   text-indent: 30px;
 }
-.search-bar.input:focus {
+.search-bar input:hover {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(26, 26, 29, 0.08);
+} 
+.search-bar input:focus {
   outline: 0;
   background-color: white;
   border: 1px solid rgb(242, 242, 242);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(26, 26, 29, 0.08);
 }
-.search-bar.input::placeholder {
+.search-bar input::placeholder {
   color: rgb(140, 140, 140);
 }
 .search-bar.icon {
   position: absolute;
-  top: 14px;
+  top: 11px;
   left: 20px;
   font-size: 21px;
   color: rgb(110, 110, 110);
+}
+.search-bar.icon:hover {
+  color: rgb(50,50,50);
+  cursor: pointer;
 }
 
 @media (max-width: 769px) {

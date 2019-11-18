@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchImages } from '../actions';
 import { MdSearch } from 'react-icons/md';
 import '../styles/components/SearchBar.css';
 
-interface Props {
-  onSubmit: Function;
-  isLoading: boolean;
-}
+export const SearchBar = (): JSX.Element => {
+  const dispatch = useDispatch();
 
-export const SearchBar = ({ onSubmit }: Props): JSX.Element => {
   const [term, setTerm] = useState('');
 
-  const onFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onSubmit(term);
+  const onFormSubmit = (
+    event: React.FormEvent<HTMLFormElement | HTMLDivElement>
+  ) => {
+    if (!term) {
+      // At this point I need some feedback for the user
+      // Like an alert saying... 'You should search for something'
+      event.preventDefault();
+    } else {
+      event.preventDefault();
+      dispatch(fetchImages(term));
+    }
   };
 
   const onInutChange = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -21,9 +28,10 @@ export const SearchBar = ({ onSubmit }: Props): JSX.Element => {
 
   return (
     <form className="search-bar form" onSubmit={onFormSubmit}>
-      <MdSearch className="search-bar icon" />
+      <div onClick={onFormSubmit}>
+        <MdSearch className="search-bar icon" />
+      </div>
       <input
-        className="search-bar input"
         type="text"
         placeholder="Search free high-resolution photos"
         onChange={onInutChange}

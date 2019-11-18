@@ -1,29 +1,21 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchUsers } from '../actions/users';
+import { useSelector } from 'react-redux';
 import { StoreState } from '../reducers';
-import { SearchBar } from '../components/SearchBar';
 
 export default () => {
   const { response, isFetching, error } = useSelector(
     (state: StoreState) => state.users
   );
-  const dispatch = useDispatch();
 
-  const onSubmit = (term: string): void => {
-    dispatch(fetchUsers(term));
-  };
   return (
     <div>
       <div>User page</div>
       {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
-      <SearchBar onSubmit={onSubmit} isLoading={false} />
       <div>
         {response.results.map(user => (
           <div key={user.id}>
             <div>{user.first_name}</div>
-            <img src={user.profile_image && user.profile_image.large} />
           </div>
         ))}
       </div>

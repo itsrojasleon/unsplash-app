@@ -29,6 +29,26 @@ export interface FetchImagesFailureAction {
   type: ImageActionTypes.fetchImagesFailure;
 }
 
+export const fetchInitialImages = () => {
+  return async (dispatch: Dispatch) => {
+    dispatch({
+      type: ImageActionTypes.fetchImagesBegin,
+    });
+
+    try {
+      const response = await unsplash.get('/search/photos', {
+        params: { query: 'nature' },
+      });
+      dispatch({
+        type: ImageActionTypes.fetchImagesSuccess,
+        payload: response.data,
+      });
+    } catch (e) {
+      dispatch({ type: ImageActionTypes.fetchImagesFailure });
+    }
+  };
+};
+
 export const fetchImages = (query: string) => {
   return async (dispatch: Dispatch) => {
     dispatch<FetchImagesBeginAction>({

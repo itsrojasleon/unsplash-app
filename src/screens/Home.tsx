@@ -1,29 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchImages } from '../actions';
+import { fetchInitialImages } from '../actions';
 import { StoreState } from '../reducers/index';
-import { SearchBar } from '../components/SearchBar';
 import { ImageList } from '../components/ImageList';
-// import {Spinner} from 'rojasleon-react-spinner';
-// import { Spinner } from '../components/Spinner';
 
 export default () => {
-  const { response, isFetching, error } = useSelector(
-    (state: StoreState) => state.images
-  );
+  const { response, error } = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
 
-  const onSubmit = (term: string): void => {
-    dispatch(fetchImages(term));
-  };
+  useEffect(() => {
+    dispatch(fetchInitialImages());
+  }, [dispatch]);
 
   return (
     <div>
-      <SearchBar onSubmit={onSubmit} isLoading={isFetching} />
-      {/* Probably I'll dont need it */}
-      {/* {isFetching && <Spinner isBig />} */}
       {error && <div>{error}</div>}
-      {/* <Spinner /> */}
       <ImageList images={response.results} />
     </div>
   );
