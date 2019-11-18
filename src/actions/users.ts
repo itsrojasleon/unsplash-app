@@ -30,6 +30,8 @@ export interface FetchUsersFailureAction {
 
 export const fetchUsers = (query: string) => {
   return async (dispatch: Dispatch) => {
+    dispatch<FetchUsersBeginAction>({ type: UserActionTypes.fetchUsersBegin });
+
     try {
       const response = await unsplash.get<UserResponse>('/search/users', {
         params: { query },
@@ -40,7 +42,9 @@ export const fetchUsers = (query: string) => {
         payload: response.data,
       });
     } catch (err) {
-      console.log('Something went wrong');
+      dispatch<FetchUsersFailureAction>({
+        type: UserActionTypes.fetchUsersFailure,
+      });
     }
   };
 };
