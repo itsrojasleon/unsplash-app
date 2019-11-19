@@ -49,3 +49,18 @@ export const fetchUsers = (query: string) => {
     }
   };
 };
+
+export const fetchUser = (username: string) => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const response = await unsplash.get(`/users/${username}`);
+
+      dispatch({
+        type: UserActionTypes.fetchUsersSuccess,
+        payload: response.data,
+      });
+    } catch (e) {
+      console.log('Something went wrong');
+    }
+  };
+};
