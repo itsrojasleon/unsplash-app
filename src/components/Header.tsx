@@ -9,7 +9,10 @@ export const Header: React.FC = (): JSX.Element => {
     <div className="header-container">
       <header>
         <nav>
-          <SearchBar />
+          <div style={{ width: '100%', display: 'flex', alignItems: 'center' }}>
+            <span>🏙</span>
+            <SearchBar />
+          </div>
           <div>
             <Link to="/">Photos</Link>
             <Link to="/">Collections</Link>

@@ -8,6 +8,8 @@ export default () => {
   const { response, error } = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
 
+  console.log('Response: ', response);
+
   useEffect(() => {
     dispatch(fetchInitialImages());
   }, [dispatch]);

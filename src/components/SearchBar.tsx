@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchImages } from '../actions';
 import { MdSearch } from 'react-icons/md';
 import '../styles/components/SearchBar.css';
 
 export const SearchBar = (): JSX.Element => {
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const [term, setTerm] = useState('');
@@ -17,6 +19,7 @@ export const SearchBar = (): JSX.Element => {
       // Like an alert saying... 'You should search for something'
       event.preventDefault();
     } else {
+      history.push('/');
       event.preventDefault();
       dispatch(fetchImages(term));
     }
