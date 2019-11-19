@@ -10,6 +10,12 @@ import {
   FetchUsersFailureAction,
 } from './users';
 
+import {
+  FetchCollectionsBeginAction,
+  FetchCollectionsSuccessAction,
+  FetchCollectionsFailureAction,
+} from './collections';
+
 export enum ImageActionTypes {
   fetchImagesBegin,
   fetchImagesSuccess,
@@ -22,6 +28,12 @@ export enum UserActionTypes {
   fetchUsersFailure,
 }
 
+export enum CollectionActionTypes {
+  fetchCollectionsBegin,
+  fetchCollectionSuccess,
+  fetchCollectionFailure,
+}
+
 export type ImageAction =
   | FetchImagesBeginAction
   | FetchImagesSuccessAction
@@ -31,3 +43,8 @@ export type UserAction =
   | FetchUsersBeginAction
   | FetchUsersSuccessAction
   | FetchUsersFailureAction;
+
+export type CollectionAction =
+  | FetchCollectionsBeginAction
+  | FetchCollectionsSuccessAction
+  | FetchCollectionsFailureAction;

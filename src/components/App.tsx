@@ -5,6 +5,7 @@ import { Spinner } from './Spinner';
 
 const Home = lazy(() => import('../screens/Home'));
 const User = lazy(() => import('../screens/User'));
+const Collection = lazy(() => import('../screens/Collections'));
 
 export const App = (): JSX.Element => {
   return (
@@ -14,6 +15,7 @@ export const App = (): JSX.Element => {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/users" component={User} />
+          <Route path="/collections" component={Collection} />
         </Switch>
       </Suspense>
     </BrowserRouter>
