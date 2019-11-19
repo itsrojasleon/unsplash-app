@@ -11,7 +11,7 @@ export default () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchImages(initialValue || 'woman'));
+    dispatch(fetchImages(initialValue || 'nature'));
   }, [dispatch, initialValue]);
 
   return (

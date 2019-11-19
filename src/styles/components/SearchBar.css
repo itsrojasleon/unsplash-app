@@ -1,27 +1,27 @@
 .search-bar.form {
   text-align: center;
   position: relative;
-  width: 60%;
+  width: 100%;
 }
 .search-bar input {
   width: 100%;
-  font-size: 17px;
+  font-size: 15px;
   border-radius: 50px;
   border: none;
   padding: 10px 25px;
-  background-color: rgb(235, 237, 237);
+  background-color: rgb(237, 237, 237);
   border: 1px solid rgb(242, 242, 242);
   transition: 0.3s;
   text-indent: 30px;
 }
 .search-bar input:hover {
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(26, 26, 29, 0.08);
+  border: 1px solid rgb(203,203,203);
 } 
 .search-bar input:focus {
   outline: 0;
   background-color: white;
-  border: 1px solid rgb(242, 242, 242);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(26, 26, 29, 0.08);
+  border: 1px solid rgb(237, 237, 237);
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 12px rgba(26, 26, 29, 0.08); */
 }
 .search-bar input::placeholder {
   color: rgb(140, 140, 140);
@@ -33,7 +33,14 @@
   font-size: 21px;
   color: rgb(110, 110, 110);
 }
-.search-bar.icon:hover {
+.search-bar.icon-cross {
+  position: absolute;
+  top: 11px;
+  right: 20px;
+  font-size: 21px;
+  color: rgb(110, 110, 110);
+}
+.search-bar.icon:hover, .search-bar.icon-cross:hover   {
   color: rgb(50,50,50);
   cursor: pointer;
 }

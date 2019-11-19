@@ -1,15 +1,32 @@
 .header-container {
-  width: 100%;
   border-bottom: 1px solid rgb(240, 240, 240);
-  margin-bottom: 20px;
+  margin-bottom: 20px
 }
 .header-container header {
   margin: auto;
-  padding: 10px;
+  padding: 12px;
 }
 .header-container nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.header-container .logo {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.header-container .links {
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+}
+.header-container .links a {
+  text-decoration: none;
+  color: rgb(100,100,100);
+  font-size: 15px;
+}
+.header-container .links a:hover {
+  color: black;
 }
