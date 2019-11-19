@@ -1,11 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchUsers } from '../actions/users';
 import { StoreState } from '../reducers';
 
 export default () => {
   const { response, isFetching, error } = useSelector(
     (state: StoreState) => state.users
   );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchUsers('Stephen'));
+  }, [dispatch]);
 
   return (
     <div>
