@@ -6,6 +6,7 @@ export interface User {
   id?: number;
   first_name?: string;
   profile_image?: { [key: string]: string };
+  username: string;
 }
 export interface UserResponse {
   results: User[];

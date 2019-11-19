@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from '../actions/users';
 import { StoreState } from '../reducers';
+import { UserCard } from '../components/UserCard';
 
 export default () => {
   const { response, isFetching, error } = useSelector(
@@ -15,14 +16,11 @@ export default () => {
 
   return (
     <div>
-      <div>User page</div>
       {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
       <div>
         {response.results.map(user => (
-          <div key={user.id}>
-            <div>{user.first_name}</div>
-          </div>
+          <UserCard key={user.id} {...user} />
         ))}
       </div>
     </div>

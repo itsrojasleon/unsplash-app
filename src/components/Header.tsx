@@ -10,7 +10,6 @@ export const Header: React.FC = (): JSX.Element => {
       <header>
         <nav>
           <div className="logo">
-            <span>🏙</span>
             <SearchBar />
           </div>
           <div className="links">
