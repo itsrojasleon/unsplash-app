@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchInitialImages } from '../actions';
+import { fetchImages } from '../actions';
 import { StoreState } from '../reducers/index';
 import { ImageList } from '../components/ImageList';
 
 export default () => {
-  const { response, error } = useSelector((state: StoreState) => state.images);
+  const { response, error, initialValue } = useSelector(
+    (state: StoreState) => state.images
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchInitialImages());
-  }, [dispatch]);
+    dispatch(fetchImages(initialValue || 'woman'));
+  }, [dispatch, initialValue]);
 
   return (
     <div>

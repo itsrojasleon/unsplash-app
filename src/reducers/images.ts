@@ -4,6 +4,7 @@ const initialState = {
   response: { results: [], total: 0, total_pages: 0 },
   isFetching: false,
   error: '',
+  initialValue: '',
 };
 
 export const imagesReducer = (
@@ -14,6 +15,7 @@ export const imagesReducer = (
     case ImageActionTypes.fetchImagesBegin:
       return {
         ...state,
+        initialValue: action.payload,
         isFetching: true,
       };
     case ImageActionTypes.fetchImagesSuccess:
