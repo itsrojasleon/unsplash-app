@@ -8,6 +8,7 @@ import {
   FetchUsersBeginAction,
   FetchUsersSuccessAction,
   FetchUsersFailureAction,
+  FetchUserSuccessAction,
 } from './users';
 
 import {
@@ -26,6 +27,7 @@ export enum UserActionTypes {
   fetchUsersBegin,
   fetchUsersSuccess,
   fetchUsersFailure,
+  fetchUserSuccess,
 }
 
 export enum CollectionActionTypes {
@@ -42,7 +44,8 @@ export type ImageAction =
 export type UserAction =
   | FetchUsersBeginAction
   | FetchUsersSuccessAction
-  | FetchUsersFailureAction;
+  | FetchUsersFailureAction
+  | FetchUserSuccessAction;
 
 export type CollectionAction =
   | FetchCollectionsBeginAction

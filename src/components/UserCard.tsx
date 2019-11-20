@@ -6,7 +6,7 @@ export const UserCard = ({ id, username, profile_image }: User) => {
   return (
     <div key={id}>
       <div>{username}</div>
-      <img src={profile_image && profile_image.medium} />
+      <img alt={username} src={profile_image && profile_image.medium} />
       <Link
         to={{
           pathname: `/users/${username}`,

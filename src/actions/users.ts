@@ -10,6 +10,7 @@ export interface User {
 }
 export interface UserResponse {
   results: User[];
+  result: any;
   total: number;
   total_pages: number;
 }
@@ -50,13 +51,18 @@ export const fetchUsers = (query: string) => {
   };
 };
 
+export interface FetchUserSuccessAction {
+  type: UserActionTypes.fetchUserSuccess;
+  payload: UserResponse;
+}
+
 export const fetchUser = (username: string) => {
   return async (dispatch: Dispatch) => {
     try {
       const response = await unsplash.get(`/users/${username}`);
 
-      dispatch({
-        type: UserActionTypes.fetchUsersSuccess,
+      dispatch<FetchUserSuccessAction>({
+        type: UserActionTypes.fetchUserSuccess,
         payload: response.data,
       });
     } catch (e) {
