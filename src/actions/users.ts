@@ -7,6 +7,7 @@ export interface User {
   name?: string;
   profile_image?: { [key: string]: string };
   username: string;
+  instagram_username?: string;
 }
 export interface UserResponse {
   results: User[] | any;

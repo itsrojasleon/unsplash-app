@@ -1,0 +1,36 @@
+.user-profile {
+  width: 60%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-profile .data {
+  align-self: flex-start;
+  width: 100%;
+}
+.user-profile img {
+  border-radius: 50%;
+}
+.user-profile .data .info {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.user-profile .data .button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: black;
+  color: white;
+  border-radius: 6px;  
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-weight: 500;
+}
+.user-profile .data .button:hover {
+  cursor: pointer;
+}
+.user-profile .data .button span {
+  margin-left: 5px;
+}
