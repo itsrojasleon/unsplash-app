@@ -19,9 +19,8 @@ export default () => {
       {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
       <div>
-        {response.results.map(user => (
-          <UserCard key={user.id} {...user} />
-        ))}
+        {Array.isArray(response.results) &&
+          response.results.map(user => <UserCard key={user.id} {...user} />)}
       </div>
     </div>
   );

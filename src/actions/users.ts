@@ -9,10 +9,7 @@ export interface User {
   username: string;
 }
 export interface UserResponse {
-  results: User[];
-  result: any;
-  total: number;
-  total_pages: number;
+  results: User[] | any;
 }
 export interface UserServerResponse {
   response: UserResponse;
@@ -58,6 +55,8 @@ export interface FetchUserSuccessAction {
 
 export const fetchUser = (username: string) => {
   return async (dispatch: Dispatch) => {
+    dispatch<FetchUsersBeginAction>({ type: UserActionTypes.fetchUsersBegin });
+
     try {
       const response = await unsplash.get(`/users/${username}`);
 
@@ -66,7 +65,9 @@ export const fetchUser = (username: string) => {
         payload: response.data,
       });
     } catch (e) {
-      console.log('Something went wrong');
+      dispatch<FetchUsersFailureAction>({
+        type: UserActionTypes.fetchUsersFailure,
+      });
     }
   };
 };

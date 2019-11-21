@@ -1,7 +1,7 @@
 import { UserServerResponse, UserAction, UserActionTypes } from '../actions';
 
 const initialState = {
-  response: { results: [], result: {}, total: 0, total_pages: 0 },
+  response: { results: [] || {} },
   isFetching: false,
   error: '',
 };
@@ -14,27 +14,27 @@ export const usersReducer = (
     case UserActionTypes.fetchUsersBegin:
       return {
         ...state,
-        loading: true,
+        isFetching: true,
       };
     case UserActionTypes.fetchUsersSuccess:
       return {
         ...state,
-        laoding: false,
+        isFetching: false,
         response: action.payload,
       };
     case UserActionTypes.fetchUserSuccess:
       return {
         ...state,
-        loading: false,
+        isFetching: false,
         response: {
           ...state.response,
-          result: action.payload,
+          results: action.payload,
         },
       };
     case UserActionTypes.fetchUsersFailure:
       return {
         ...state,
-        loading: false,
+        isFetching: false,
         error: 'Something went wrong',
       };
     default:

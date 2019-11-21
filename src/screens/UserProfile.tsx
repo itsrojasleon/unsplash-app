@@ -5,13 +5,9 @@ import { fetchUser } from '../actions';
 import { StoreState } from '../reducers/index';
 
 export default (): JSX.Element => {
-  const {
-    response: { result },
-  } = useSelector((state: StoreState) => state.users);
+  const { response } = useSelector((state: StoreState) => state.users);
   const dispatch = useDispatch();
   const { username } = useParams();
-
-  console.log(result);
 
   useEffect(() => {
     dispatch(fetchUser(username || ''));
@@ -19,8 +15,15 @@ export default (): JSX.Element => {
 
   return (
     <div>
-      <img src={result.profile_image && result.profile_image.large} />
-      <div>{result.username}</div>
+      {!Array.isArray(response.results) && (
+        <img
+          alt={response.results.username}
+          src={
+            response.results.profile_image &&
+            response.results.profile_image.large
+          }
+        />
+      )}
     </div>
   );
 };
