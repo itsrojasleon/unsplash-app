@@ -11,9 +11,8 @@ interface Props {
 export const UserList = ({ userData }: Props): JSX.Element => {
   return (
     <div className="user-list">
-      {userData.map(user => (
-        <UserCard key={user.id} {...user} />
-      ))}
+      {Array.isArray(userData) &&
+        userData.map(user => <UserCard key={user.id} {...user} />)}
     </div>
   );
 };

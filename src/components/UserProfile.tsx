@@ -20,7 +20,7 @@ export const UserProfile = ({
             rel="noopener noreferrer"
             className="button">
             <FaInstagram />
-            <span>{instagram_username}</span>
+            <span>Instagram</span>
           </a>
         </div>
       </div>

@@ -1,5 +1,5 @@
 .user-profile {
-  width: 60%;
+  width: 65%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -33,4 +33,23 @@
 }
 .user-profile .data .button span {
   margin-left: 5px;
+}
+
+@media(max-width: 769px) {
+  .user-profile {
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    padding: 10px;
+  } 
+  .user-profile .data {
+    flex-direction: row;
+    margin-top: 20px;
+  }
+  .user-profile  img {
+    width: 100px;
+  }
+  .user-profile .data h1{
+    font-size: 22px;
+  }
 }
