@@ -14,6 +14,8 @@ export default () => {
     dispatch(fetchUsers('Stephen'));
   }, [dispatch]);
 
+  console.log(response.results);
+
   return (
     <div>
       {isFetching && <div>Loading...</div>}

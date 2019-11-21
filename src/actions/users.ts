@@ -4,7 +4,7 @@ import { UserActionTypes } from './types';
 
 export interface User {
   id?: number;
-  first_name?: string;
+  name?: string;
   profile_image?: { [key: string]: string };
   username: string;
 }
