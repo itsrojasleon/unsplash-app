@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export const UserCard = ({ id, username, profile_image }: User) => {
   return (
-    <div key={id}>
+    <div className="user-card">
       <div>{username}</div>
       <img alt={username} src={profile_image && profile_image.medium} />
       <Link

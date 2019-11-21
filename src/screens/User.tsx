@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from '../actions/users';
 import { StoreState } from '../reducers';
-import { UserCard } from '../components/UserCard';
+import { UserList } from '../components/UserList';
 
 export default () => {
   const { response, isFetching, error } = useSelector(
@@ -16,12 +16,9 @@ export default () => {
 
   return (
     <div>
-      {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
-      <div>
-        {Array.isArray(response.results) &&
-          response.results.map(user => <UserCard key={user.id} {...user} />)}
-      </div>
+      <UserList userData={response.results} />
+      {error && <div>{error}</div>}
     </div>
   );
 };

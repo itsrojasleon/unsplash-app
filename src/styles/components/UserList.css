@@ -1,0 +1,9 @@
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minMax(250px, 1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.user-list .user-card {
+  border: 1px solid #ccc;
+}
