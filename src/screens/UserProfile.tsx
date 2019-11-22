@@ -18,8 +18,6 @@ export default (): JSX.Element => {
     dispatch(fetchUser(username || ''));
   }, [dispatch, username]);
 
-  console.log(results);
-
   return (
     <div>
       {error && <div>{error}</div>}

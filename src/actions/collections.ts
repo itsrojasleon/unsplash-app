@@ -2,9 +2,14 @@ import { CollectionActionTypes } from './types';
 import { Dispatch } from 'redux';
 import { unsplash } from '../api/unsplash';
 
+interface CollectionTags {
+  type: string;
+  title: string;
+}
+
 export interface Collection {
   id?: number;
-  urls?: { thumb: string };
+  tags?: CollectionTags[];
   title?: string;
 }
 export interface CollectionResponse {
@@ -31,6 +36,10 @@ export interface FetchCollectionsFailureAction {
 
 export const fetchCollections = () => {
   return async (dispatch: Dispatch) => {
+    dispatch<FetchCollectionsBeginAction>({
+      type: CollectionActionTypes.fetchCollectionsBegin,
+    });
+
     try {
       const response = await unsplash.get<CollectionResponse>(
         '/search/collections',
@@ -44,7 +53,9 @@ export const fetchCollections = () => {
         payload: response.data,
       });
     } catch (e) {
-      console.log('Something went wrong');
+      dispatch<FetchCollectionsFailureAction>({
+        type: CollectionActionTypes.fetchCollectionFailure,
+      });
     }
   };
 };
