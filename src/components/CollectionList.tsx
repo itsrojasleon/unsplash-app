@@ -1,21 +1,17 @@
 import React from 'react';
 import { Collection } from '../actions';
+import { CollectionCard } from './CollectionCard';
 
 interface Props {
-  collection: Collection;
+  collections: Collection[];
 }
 
-export const CollectionList = ({ collection }: Props) => {
-  console.log(collection);
+export const CollectionList = ({ collections }: Props) => {
   return (
     <div>
-      <div>{collection.title}</div>
-      <div>{collection.id}</div>
-      <div>
-        {Array.isArray(collection.tags) &&
-          collection.tags.map(c => <div key={c.title}>{c.title}</div>)}
-      </div>
-      <br />
+      {collections.map(c => (
+        <CollectionCard key={c.id} {...c} />
+      ))}
     </div>
   );
 };

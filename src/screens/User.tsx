@@ -5,9 +5,11 @@ import { StoreState } from '../reducers';
 import { UserList } from '../components/UserList';
 
 export default () => {
-  const { response, isFetching, error } = useSelector(
-    (state: StoreState) => state.users
-  );
+  const {
+    response: { results },
+    isFetching,
+    error,
+  } = useSelector((state: StoreState) => state.users);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export default () => {
   return (
     <div>
       {isFetching && <div>Loading...</div>}
-      <UserList userData={response.results} />
+      <UserList userData={results} />
       {error && <div>{error}</div>}
     </div>
   );

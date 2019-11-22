@@ -5,9 +5,11 @@ import { StoreState } from '../reducers';
 import { CollectionList } from '../components/CollectionList';
 
 export default (): JSX.Element => {
-  const { response, isFetching, error } = useSelector(
-    (state: StoreState) => state.collections
-  );
+  const {
+    response: { results },
+    isFetching,
+    error,
+  } = useSelector((state: StoreState) => state.collections);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,9 +20,8 @@ export default (): JSX.Element => {
     <div>
       {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
-      {response.results.map(collection => (
-        <CollectionList key={collection.id} collection={collection} />
-      ))}
+      <h2>Collections</h2>
+      <CollectionList collections={results} />(
     </div>
   );
 };

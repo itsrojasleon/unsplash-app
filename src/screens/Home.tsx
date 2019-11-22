@@ -5,9 +5,11 @@ import { StoreState } from '../reducers/index';
 import { ImageList } from '../components/ImageList';
 
 export default () => {
-  const { response, error, initialValue } = useSelector(
-    (state: StoreState) => state.images
-  );
+  const {
+    response: { results },
+    error,
+    initialValue,
+  } = useSelector((state: StoreState) => state.images);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,7 +19,7 @@ export default () => {
   return (
     <div>
       {error && <div>{error}</div>}
-      <ImageList images={response.results} />
+      <ImageList images={results} />
     </div>
   );
 };

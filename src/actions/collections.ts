@@ -2,15 +2,19 @@ import { CollectionActionTypes } from './types';
 import { Dispatch } from 'redux';
 import { unsplash } from '../api/unsplash';
 
+interface CollectionPreviewPhotos {
+  id: string;
+  urls: { [key: string]: string };
+}
 interface CollectionTags {
   type: string;
   title: string;
 }
-
 export interface Collection {
-  id?: number;
-  tags?: CollectionTags[];
-  title?: string;
+  id: number;
+  title: string;
+  tags: CollectionTags[];
+  preview_photos: CollectionPreviewPhotos[];
 }
 export interface CollectionResponse {
   results: Collection[];
@@ -44,7 +48,7 @@ export const fetchCollections = () => {
       const response = await unsplash.get<CollectionResponse>(
         '/search/collections',
         {
-          params: { query: 'Hello' },
+          params: { query: 'Dark' },
         }
       );
 
