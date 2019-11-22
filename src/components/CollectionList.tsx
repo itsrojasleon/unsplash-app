@@ -1,6 +1,7 @@
 import React from 'react';
 import { Collection } from '../actions';
 import { CollectionCard } from './CollectionCard';
+import '../styles/components/CollectionList.css';
 
 interface Props {
   collections: Collection[];
@@ -8,7 +9,7 @@ interface Props {
 
 export const CollectionList = ({ collections }: Props) => {
   return (
-    <div>
+    <div className="collection-list">
       {collections.map(c => (
         <CollectionCard key={c.id} {...c} />
       ))}
