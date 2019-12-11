@@ -1,5 +1,5 @@
 .image-list {
-  width: 90%;
+  /* width: 90%; */
   margin: auto;
   display: grid;
   grid-template-columns: repeat(auto-fill, minMax(250px, 1fr));
