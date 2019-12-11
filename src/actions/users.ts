@@ -4,7 +4,7 @@ import { UserActionTypes } from './types';
 
 export interface Photos {
   id: string;
-  urls: { full: string };
+  urls: { thumb: string };
 }
 export interface User {
   id?: number;

@@ -23,7 +23,7 @@ export const ImageCard = ({ urls }: Image): JSX.Element => {
 
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
-      <img ref={imageRef} src={urls ? urls.full : ''} alt="Hello there" />
+      <img ref={imageRef} src={urls ? urls.thumb : ''} alt="Hello there" />
     </div>
   );
 };
