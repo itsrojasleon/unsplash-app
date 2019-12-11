@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Image } from '../actions';
 
-export const ImageCard = ({ urls, description }: Image): JSX.Element => {
+export const ImageCard = ({ urls }: Image): JSX.Element => {
   const [spans, setSpans] = useState(0);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -23,7 +23,7 @@ export const ImageCard = ({ urls, description }: Image): JSX.Element => {
 
   return (
     <div style={{ gridRowEnd: `span ${spans}` }}>
-      <img ref={imageRef} src={urls ? urls.thumb : ''} alt={description} />
+      <img ref={imageRef} src={urls ? urls.full : ''} alt="Hello there" />
     </div>
   );
 };

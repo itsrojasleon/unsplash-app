@@ -4,7 +4,7 @@ import { ImageActionTypes } from './types';
 
 export interface Image {
   id?: number;
-  urls?: { thumb: string };
+  urls?: { thumb?: string; full?: string };
   description?: string;
 }
 export interface ImageResponse {

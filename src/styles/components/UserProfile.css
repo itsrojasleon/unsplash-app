@@ -1,12 +1,12 @@
 .user-profile {
   width: 65%;
-  margin: auto;
+  margin: 0 auto 25px auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 .user-profile .data {
-  align-self: flex-start;
+  /* align-self: fle  x-start; */
   width: 100%;
 }
 .user-profile img {

@@ -8,7 +8,7 @@ export const CollectionCard = ({ title, tags, preview_photos }: Collection) => {
         preview_photos.map(
           p => p.urls && <img key={p.id} alt={p.id} src={p.urls.thumb} />
         )} */}
-      {preview_photos && <img src={preview_photos[0].urls.thumb} />}
+      {preview_photos && <img src={preview_photos[0].urls.thumb} alt={title} />}
       <div>{title}</div>
       {tags && tags.map(t => <div key={t.title}>{t.title}</div>)}
     </div>

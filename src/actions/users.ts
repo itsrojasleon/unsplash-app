@@ -2,12 +2,17 @@ import { unsplash } from '../api/unsplash';
 import { Dispatch } from 'redux';
 import { UserActionTypes } from './types';
 
+export interface Photos {
+  id: string;
+  urls: { full: string };
+}
 export interface User {
   id?: number;
   name?: string;
   profile_image?: { [key: string]: string };
   username: string;
   instagram_username?: string;
+  photos?: Photos[];
 }
 export interface UserResponse {
   results: User[] | any;
