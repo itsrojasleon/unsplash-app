@@ -1,9 +1,30 @@
 .collection-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minMax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minMax(350px, 1fr));
   column-gap: 10px;
   row-gap: 10px;
+  margin-top: 20px;
 }
 .collection-list .collection-card {
-  border: 1px solid rebeccapurple;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.collection-list .collection-card .up > img {
+  width: 40%;
+}
+.collection-list .collection-card .down > h3 {
+  margin-bottom: 4px;
+}
+.collection-list .collection-card .down > span {
+  display: flex;
+  margin-bottom: 10px;
+}
+.collection-list .collection-card .down > span > span {
+  display: flex;
+  background-color: rgb(238,238,238);
+  border-radius: 4px;
+  padding: 4px 6px;
+  margin-right: 12px;
 }

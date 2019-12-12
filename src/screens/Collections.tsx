@@ -20,8 +20,8 @@ export default (): JSX.Element => {
     <div>
       {error && <div>{error}</div>}
       {isFetching && <div>Loading...</div>}
-      <h2>Collections</h2>
-      <CollectionList collections={results} />(
+      <h1>Collections</h1>
+      <CollectionList collections={results} />
     </div>
   );
 };

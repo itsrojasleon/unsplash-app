@@ -19,6 +19,7 @@ export default () => {
   return (
     <div>
       {isFetching && <div>Loading...</div>}
+      <h1>Users</h1>
       <UserList userData={results} />
       {error && <div>{error}</div>}
     </div>

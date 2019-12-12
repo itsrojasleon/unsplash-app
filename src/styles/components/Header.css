@@ -30,3 +30,18 @@
 .header-container .links a:hover {
   color: black;
 }
+
+@media(max-width: 769px) {
+  .header-container .logo > a > svg {
+    display: none;
+  }
+  .header-container .logo {
+    margin-bottom: 20px;
+  }
+  .header-container nav {
+    flex-direction: column;
+  }
+  .header-container .links {
+    width: 100%;
+  }
+}

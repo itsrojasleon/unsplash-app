@@ -4,8 +4,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minMax(250px, 1fr));
   grid-auto-rows: 10px;
-  column-gap: 1px;
-  row-gap: 0.5px;
+  column-gap: 0.1px;
+  row-gap: 0.1px;
 }
 
 .image-list img {
