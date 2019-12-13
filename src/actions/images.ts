@@ -31,7 +31,7 @@ export interface FetchImagesFailureAction {
   type: ImageActionTypes.fetchImagesFailure;
 }
 
-export const fetchImages = (query: string) => {
+export const fetchImages = (query: string, total: number = 20) => {
   return async (dispatch: Dispatch) => {
     dispatch<FetchImagesBeginAction>({
       type: ImageActionTypes.fetchImagesBegin,
@@ -40,7 +40,7 @@ export const fetchImages = (query: string) => {
 
     try {
       const response = await unsplash.get<ImageResponse>('/search/photos', {
-        params: { query },
+        params: { query, per_page: total },
       });
 
       dispatch<FetchImagesSuccessAction>({
